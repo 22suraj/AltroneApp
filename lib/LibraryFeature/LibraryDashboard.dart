@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mydrive/AddFeature/AddFolder.dart';
-import 'package:mydrive/FilesFeature/PhotoScreen.dart';
 import 'package:mydrive/Helper/CustomColors.dart';
 import 'package:mydrive/Helper/CustomLeadingIcon.dart';
 import 'package:mydrive/models/FolderModel.dart';
@@ -73,7 +71,7 @@ class _LibraryDashboardState extends State<LibraryDashboard> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [CustomColors().mygreenboxshadow],
               ),

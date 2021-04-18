@@ -1,4 +1,3 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:mydrive/AddFeature/AddScreen.dart';
@@ -6,7 +5,6 @@ import 'package:mydrive/FilesFeature/FIlesDashboard.dart';
 import 'package:mydrive/Helper/CustomColors.dart';
 import 'package:mydrive/LibraryFeature/LibraryDashboard.dart';
 import 'package:mydrive/ProfileFeature/ProfileScreen.dart';
-import 'package:mydrive/FilesFeature/PhotoScreen.dart';
 import 'package:mydrive/RecentFeature/RecentScreen.dart';
 import 'package:mydrive/SearchFeature/SearchScreen.dart';
 import 'package:mydrive/SharedFeature/SharedDashboard.dart';
@@ -50,7 +48,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             leading: IconButton(
               icon: Icon(
                 Icons.account_circle_rounded,
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
               ),
               onPressed: () {
                 setState(() {
@@ -62,7 +60,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               IconButton(
                 icon: Icon(
                   Icons.search,
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                 ),
                 onPressed: () {
                   setState(() {
@@ -100,11 +98,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: getBodyContent(_bottomnavigatorbarindex),
       bottomNavigationBar: FFNavigationBar(
         theme: FFNavigationBarTheme(
-          barBackgroundColor: Colors.white,
+          barBackgroundColor: Theme.of(context).primaryColor,
           selectedItemBorderColor: Colors.blue.shade100,
           selectedItemBackgroundColor: Colors.blue.shade600,
           selectedItemIconColor: Colors.white,
-          selectedItemLabelColor: Colors.black,
+          selectedItemLabelColor: Theme.of(context).accentColor,
         ),
         selectedIndex: _bottomnavigatorbarindex,
         onSelectTab: (index) {

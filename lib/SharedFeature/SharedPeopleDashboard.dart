@@ -27,7 +27,7 @@ class _SharedPeopleDashboardState extends State<SharedPeopleDashboard> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [CustomColors().mygreenboxshadow],
                   ),

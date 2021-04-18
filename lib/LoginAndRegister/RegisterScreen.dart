@@ -1,4 +1,3 @@
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
@@ -99,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [CustomColors().mygreenboxshadow],
                     ),
@@ -154,7 +153,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             TextFormField(
                               controller: _emailcontroller,
                               style: TextStyle(
-                                  color: Colors.black,
+                                  color: Theme.of(context).accentColor,
                                   fontWeight: FontWeight.bold),
                               keyboardType: TextInputType.emailAddress,
                               validator: (value) {
@@ -256,7 +255,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 }
                               },
                               style: TextStyle(
-                                  color: Colors.black,
+                                  color: Theme.of(context).accentColor,
                                   fontWeight: FontWeight.bold),
                               decoration: InputDecoration(
                                 hintText: "Enter Password",
@@ -312,7 +311,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 }
                               },
                               style: TextStyle(
-                                  color: Colors.black,
+                                  color:Theme.of(context).accentColor,
                                   fontWeight: FontWeight.bold),
                               decoration: InputDecoration(
                                 hintText: "Confirm Password",

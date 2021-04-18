@@ -17,7 +17,6 @@ class _FileDashboardState extends State<FileDashboard> {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
-     
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -27,7 +26,7 @@ class _FileDashboardState extends State<FileDashboard> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [CustomColors().mygreenboxshadow],
               ),
@@ -78,7 +77,7 @@ class _FileDashboardState extends State<FileDashboard> {
                           ),
                           GestureDetector(
                             onTap: () {
-                                  Navigator.push(
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => PhotoScreen()));

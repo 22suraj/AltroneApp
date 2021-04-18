@@ -31,7 +31,7 @@ class _SharedDashboardState extends State<SharedDashboard> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [CustomColors().mygreenboxshadow],
               ),

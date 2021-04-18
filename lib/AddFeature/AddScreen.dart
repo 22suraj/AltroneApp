@@ -1,16 +1,16 @@
 import 'dart:io';
-import 'package:mydrive/AddFeature/AddFolder.dart';
-import 'package:mydrive/passcode.dart';
-import 'package:path/path.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_instagram_stories/flutter_instagram_stories.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image_cropper/image_cropper.dart';
 import 'package:image/image.dart' as imageLib;
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mydrive/AddFeature/AddFolder.dart';
 import 'package:mydrive/Helper/CustomColors.dart';
 import 'package:mydrive/Helper/CustomLeadingIcon.dart';
+import 'package:path/path.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:photofilters/photofilters.dart';
 import 'package:photofilters/widgets/photo_filter.dart';
@@ -47,7 +47,7 @@ class _AddScreenState extends State<AddScreen> {
               toolbarWidgetColor: Colors.white,
               toolbarTitle: "Crop Image",
               statusBarColor: Colors.blue,
-              backgroundColor: Colors.white,
+              backgroundColor: Theme.of(context).primaryColor,
             ));
         fileName = basename(cropped.path);
         var image = imageLib.decodeImage(cropped.readAsBytesSync());
@@ -234,7 +234,7 @@ class _AddScreenState extends State<AddScreen> {
             ),*/
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [CustomColors().mygreenboxshadow],
               ),

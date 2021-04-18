@@ -8,6 +8,7 @@ class Styles {
       primarySwatch: Colors.red,
       primaryColor: isDarkTheme ? Colors.black : Colors.white,
       backgroundColor: isDarkTheme ? Colors.black : Color(0xffF1F5FB),
+      accentColor: isDarkTheme ? Colors.white : Colors.black,
       indicatorColor: isDarkTheme ? Color(0xff0E1D36) : Color(0xffCBDCF8),
       buttonColor: isDarkTheme ? Color(0xff3B3B3B) : Color(0xffF1F5FB),
       hintColor: isDarkTheme ? Color(0xff280C0B) : Color(0xffEECED3),

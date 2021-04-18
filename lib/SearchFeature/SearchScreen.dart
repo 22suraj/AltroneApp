@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mydrive/Helper/CustomColors.dart';
-import 'package:mydrive/Helper/CustomLeadingIcon.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -18,7 +17,6 @@ class _SearchScreenState extends State<SearchScreen> {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
-      
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -28,7 +26,7 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [CustomColors().mygreenboxshadow],
               ),

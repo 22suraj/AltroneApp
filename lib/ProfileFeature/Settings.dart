@@ -82,6 +82,8 @@ class _SettingsState extends State<Settings> {
                         Card(
                           elevation: 10,
                           child: ListTile(
+                            leading: CustomLeadingIcon().customLeadingIcon(
+                                icon: Icons.nightlight_round, width: width),
                             trailing: CustomSwitch(
                               activeColor: Colors.blueAccent,
                               value: themeChange.darkTheme,
@@ -92,7 +94,7 @@ class _SettingsState extends State<Settings> {
                               },
                             ),
                             title: Text(
-                              "BackUp and Sync",
+                              "Dark Mode",
                               style: GoogleFonts.lato(),
                             ),
                           ),

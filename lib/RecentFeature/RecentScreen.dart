@@ -4,7 +4,6 @@ import 'package:flutter_instagram_stories/flutter_instagram_stories.dart';
 //import 'package:flutter_instagram_stories/flutter_instagram_stories.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mydrive/Helper/CustomColors.dart';
-import 'package:mydrive/Helper/CustomLeadingIcon.dart';
 
 class RecentScreen extends StatefulWidget {
   @override
@@ -24,12 +23,13 @@ class _RecentScreenState extends State<RecentScreen> {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
+      color: Theme.of(context).primaryColor,
       alignment: Alignment.topCenter,
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-             FlutterInstagramStories(
+            FlutterInstagramStories(
               collectionDbName: collectionDbName,
               showTitleOnIcon: true,
               backFromStories: () {
@@ -38,13 +38,12 @@ class _RecentScreenState extends State<RecentScreen> {
               },
               iconTextStyle: TextStyle(
                 fontSize: 14.0,
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
               ),
-              iconImageBorderRadius: BorderRadius
-              .circular(15.0),
+              iconImageBorderRadius: BorderRadius.circular(15.0),
               iconBoxDecoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                color: Color(0xFFffffff),
+                color: Theme.of(context).primaryColor,
                 boxShadow: [
                   BoxShadow(
                     color: Color(0xff333333),
@@ -155,7 +154,7 @@ class _RecentScreenState extends State<RecentScreen> {
             ),*/
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [CustomColors().mygreenboxshadow],
               ),

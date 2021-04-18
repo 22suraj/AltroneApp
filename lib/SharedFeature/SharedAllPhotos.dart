@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mydrive/Helper/CustomColors.dart';
-import 'package:mydrive/Helper/CustomLeadingIcon.dart';
 
 class SharedAllPhotos extends StatefulWidget {
   @override
@@ -58,7 +57,7 @@ class _SharedAllPhotosState extends State<SharedAllPhotos> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [CustomColors().mygreenboxshadow],
                   ),
@@ -97,7 +96,7 @@ class _SharedAllPhotosState extends State<SharedAllPhotos> {
                             controller: _controller,
                             padding: EdgeInsets.symmetric(vertical: 10),
                             crossAxisCount: 3,
-                        //    physics: NeverScrollableScrollPhysics(),
+                            //    physics: NeverScrollableScrollPhysics(),
                             children: [
                               Column(
                                 children: [
@@ -259,15 +258,12 @@ class _SharedAllPhotosState extends State<SharedAllPhotos> {
                                   )
                                 ],
                               ),
-                             
-                          
                             ]),
                         Divider(),
                       ],
                     ),
                   ),
                 ),
-                
               ],
             ),
           ),

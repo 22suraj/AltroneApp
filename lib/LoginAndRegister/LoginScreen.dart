@@ -115,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [CustomColors().mygreenboxshadow],
                   ),
@@ -130,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextFormField(
                             controller: _emailcontroller,
                             style: TextStyle(
-                                color: Colors.black,
+                                color: Theme.of(context).accentColor,
                                 fontWeight: FontWeight.bold),
                             keyboardType: TextInputType.emailAddress,
                             validator: (value) {
@@ -176,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               }
                             },
                             style: TextStyle(
-                                color: Colors.black,
+                                color: Theme.of(context).accentColor,
                                 fontWeight: FontWeight.bold),
                             decoration: InputDecoration(
                               hintText: "Enter Password",
