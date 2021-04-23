@@ -23,4 +23,12 @@ class AddService extends ChangeNotifier {
       print(e.toString());
     }
   }
+
+  renmaeFolder(String id, String newname) {
+    try {
+      _firestore.collection("Folder").doc(id).update({"Folder-Name": newname});
+    } catch (e) {
+      print(e.toString());
+    }
+  }
 }

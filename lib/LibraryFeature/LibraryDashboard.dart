@@ -14,14 +14,29 @@ class LibraryDashboard extends StatefulWidget {
 
 class _LibraryDashboardState extends State<LibraryDashboard> {
   List<FolderModel> folderlist = [];
+  TextEditingController _namecontroller = TextEditingController();
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  showAlertDialog(
-      BuildContext context, String name, AddService folderProvider, String id) {
+  showAlertDialog(BuildContext context, String name, AddService folderProvider,
+      String id, var width) {
     // set up the buttons
     Widget cancelButton = FlatButton(
       child: Text("Cancel"),
       onPressed: () {
         Navigator.pop(context);
+      },
+    );
+
+    Widget renameButton = FlatButton(
+      child: Text("Rename"),
+      onPressed: () {
+        if (_formkey.currentState.validate()) {
+          _formkey.currentState.save();
+          folderProvider.renmaeFolder(
+              id, _namecontroller.text.trim().toString());
+          _namecontroller.clear();
+          Navigator.pop(context);
+        }
       },
     );
     Widget continueButton = FlatButton(
@@ -35,12 +50,59 @@ class _LibraryDashboardState extends State<LibraryDashboard> {
       },
     );
 
+    Widget textfield = Form(
+      key: _formkey,
+      child: TextFormField(
+        controller: _namecontroller,
+        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        keyboardType: TextInputType.name,
+        validator: (value) {
+          if (value.trim().isEmpty) {
+            return "Folder name is required";
+          }
+        },
+        decoration: InputDecoration(
+          hintText: "Enter Folder Name",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(width * 0.04),
+            borderSide: BorderSide(
+              color: CustomColors().mygreencolorshade600,
+              width: 2,
+              // style: borderStyle,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(width * 0.04),
+            borderSide: BorderSide(
+              color: CustomColors().mygreencolorshade600,
+              width: 2,
+              // style: borderStyle,
+            ),
+          ),
+          prefixIcon: Icon(
+            Icons.folder,
+            color: CustomColors().mygreencolorshade600,
+          ),
+        ),
+      ),
+    );
+
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Folder Alert"),
-      content: Text("Would you like to delete the ${name} folder ?"),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text("Would you like to delete/rename the ${name} folder ?"),
+          SizedBox(
+            height: 15,
+          ),
+          textfield
+        ],
+      ),
       actions: [
         cancelButton,
+        renameButton,
         continueButton,
       ],
     );
@@ -200,32 +262,44 @@ class _LibraryDashboardState extends State<LibraryDashboard> {
                                       crossAxisCount: 2),
                               itemBuilder: (BuildContext context, int index) {
                                 return GestureDetector(
-                                  onLongPress: () {
-                                    showAlertDialog(
-                                        context,
-                                        folderlist[index].folderName,
-                                        addProvider,
-                                        folderlist[index].id);
-                                  },
-                                  child: Card(
-                                    elevation: 5,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.folder,
-                                          color: Colors.grey,
-                                          size: width * 0.2,
-                                        ),
-                                        Text(
-                                          "${folderlist[index].folderName}",
-                                          style: GoogleFonts.lato(
-                                            fontWeight: FontWeight.bold,
+                                  onLongPress: () {},
+                                  child: Stack(
+                                    alignment: Alignment.topRight,
+                                    children: [
+                                      Container(
+                                        width: double.maxFinite,
+                                        child: Card(
+                                          elevation: 5,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.folder,
+                                                color: Colors.grey,
+                                                size: width * 0.2,
+                                              ),
+                                              Text(
+                                                "${folderlist[index].folderName}",
+                                                style: GoogleFonts.lato(
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              )
+                                            ],
                                           ),
-                                        )
-                                      ],
-                                    ),
+                                        ),
+                                      ),
+                                      IconButton(
+                                          icon: Icon(Icons.more_vert),
+                                          onPressed: () {
+                                            showAlertDialog(
+                                                context,
+                                                folderlist[index].folderName,
+                                                addProvider,
+                                                folderlist[index].id,
+                                                width);
+                                          }),
+                                    ],
                                   ),
                                 );
                               },

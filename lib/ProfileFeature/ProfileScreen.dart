@@ -158,6 +158,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         await storage
                             .write(key: "LoginStatus", value: "false")
                             .then((value) {
+                          storage.write(key: "PasscodeStatus", value: "false");
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
